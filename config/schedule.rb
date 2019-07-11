@@ -1,4 +1,4 @@
-set :output, error: '/home/red2mine/red2mine/log/cron.stderr.log', standard: '/home/red2mine/red2mine/log/cron.stdout.log'
+set :output, error: '/home/gpusw/redmine4.0.3/log/cron.stderr.log', standard: '/home/gpusw/redmine4.0.3/log/cron.stdout.log'
 %w[PATH BUNDLE_PATH GEM_HOME RAILS_ENV PWD GEM_PATH].each do |envir|
   env(envir, ENV[envir])
 end

@@ -6,7 +6,7 @@ ActionView::Base.send(:include, RedmineCustomReminder::RenderHelper) unless Acti
 
 Redmine::Plugin.register :redmine_custom_reminder do
   name 'Redmine Custom Email Reminder'
-  author 'Andrey Lobanov(RedSoft)'
+  author 'Andrey Lobanov(RedSoft), Taine Woo'
   description 'Sends email notifications by custom conditions'
   version RedmineCustomReminder::Version.to_s
 
