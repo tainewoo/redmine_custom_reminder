@@ -11,7 +11,7 @@ class CustomReminder < ActiveRecord::Base
 
   class << self
     def notification_recipient_names
-      @recipients ||= CustomField.where(field_format: 'user').map { |r| [r.name, r.id] } +
+      @recipients ||= CustomField.where(type: [IssueCustomField, ProjectCustomField], field_format: 'user').map { |r| [r.name, r.id] } +
                       [["*#{l(:field_assigned_to)}*", -2],
                        ["*#{l(:label_custom_reminder_to_author_and_watchers)}*", -3],
                        ["**#{l(:label_custom_reminders_user_type)}**", -1]]
@@ -90,7 +90,7 @@ class CustomReminder < ActiveRecord::Base
     when :role
       role_id = notification_recipient
       issues_list.each do |issue|
-        user_id = issue.custom_field_value(role_id)
+        user_id = issue.custom_field_value(role_id) || issue.project.custom_field_value(role_id)
         next if user_id.nil? || user_id.empty?
         user = User.find_by_id(user_id)
         issues_hash[user] ||= []

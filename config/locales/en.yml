@@ -1,5 +1,5 @@
 en:
-  mail_custom_reminder_subject: "[Redmine Issue Reminder] %{count} Issues For Your Information "
+  mail_custom_reminder_subject: "[Issue Reminder] %{count} Issues For Your Information"
   label_custom_reminders_plural: 'Custom Reminders'
   label_custom_reminder_new: "New custom reminder"
   label_custom_reminder_trigger_definition: "Custom Reminder definition"
@@ -32,11 +32,11 @@ en:
     issues_list.each do |issue|
       if issue.assigned_to.is_a?(User)
         issues_hash[issue.assigned_to] ||= []
-        	issues_hash[issue.assigned_to] << issue
+        issues_hash[issue.assigned_to] << issue
       elsif issue.assigned_to.is_a?(Group)
         issue.assigned_to.users.each do |user|
         	issues_hash[user] ||= []
-        		issues_hash[user] << issue
+        	issues_hash[user] << issue
         end
       end
     end
