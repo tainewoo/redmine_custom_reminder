@@ -3,7 +3,7 @@
 <% @projects.each do |project| %>
   - <%= project.name %>
   <% @issues.select{|i| i.project == project}.each do |issue| -%>
-    * <%= "#{issue.project} - #{issue.tracker} ##{issue.id}: #{issue.subject}" %>
+    * <%= "#{issue.tracker} ##{issue.id}: #{issue.subject}" %>
   <% end -%>
 <% end %>
 

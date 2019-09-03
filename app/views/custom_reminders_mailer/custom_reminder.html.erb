@@ -8,7 +8,7 @@
   <h4><%= "#{l(:label_project)} - #{project.name}" %></h4>
   <ul>
     <% @issues.select {|i| i.project == project}.each do |issue| -%>
-      <li><%= link_to_issue(issue, :project => true, :only_path => false) %></li>
+      <li><%= link_to_issue(issue, :project => false, :only_path => false) %></li>
     <% end -%>
   </ul>
 <% end -%>
