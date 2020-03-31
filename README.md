@@ -25,5 +25,8 @@ Regular plugin installation:
 
 After last step scheduler will start at 10:00 am every day. You can change it in *(**$REDMINE_ROOT**)plugins/redmine_custom_reminder/config/schedule.rb*. And executing step №5 from instruction.
 
+Update:
+For step 5, you can also try to add the CustomReminder command to your cron tasks manually:
+/usr/local/bin/bundle exec /usr/local/bin/rails runner -e production "CustomRemindersJob.perform_now"
 
 _Inspired by Redmine Custom Workflows;_
